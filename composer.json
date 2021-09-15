@@ -1,0 +1,22 @@
+{
+    "name": "epictest/mango-vpbx",
+    "description": "Library for Mango Office VPBX Api",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Epictest\\MangoVpbx\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dima Gudkov",
+            "email": "d.o.gudkov@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0",
+        "guzzlehttp/guzzle": "7.4.x-dev"
+    }
+}
