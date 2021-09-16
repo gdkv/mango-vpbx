@@ -2,6 +2,7 @@
 
 namespace Epictest\MangoVpbx\MangoOffice;
 
+use Epictest\MangoVpbx\Enum\Urls;
 use Epictest\MangoVpbx\MangoOffice;
 
 class Call extends MangoOffice {
@@ -9,21 +10,24 @@ class Call extends MangoOffice {
     public function sendCall()
     {
         $data = [];
+        $route = Urls::CALL()->getValue();
         
-        return $this->execute('commands/callback', $data);
+        return $this->execute($route, $data);
     }
 
     public function groupCall() 
     {
         $data = [];
-        
-        return $this->execute('commands/callback', $data);
+        $route = Urls::GROUP()->getValue();
+
+        return $this->execute($route, $data);
     }
 
     public function hangupCall()
     {
         $data = [];
+        $route = Urls::HANGUP()->getValue();
         
-        return $this->execute('commands/callback', $data);
+        return $this->execute($route, $data);
     }
 }
