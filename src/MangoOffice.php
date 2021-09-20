@@ -2,9 +2,9 @@
 
 namespace Epictest\MangoVpbx;
 
-use Epictest\MangoVpbx\MangoOffice\Helpers;
 use JsonException;
 use GuzzleHttp\Client;
+use Epictest\MangoVpbx\MangoOffice\Helpers;
 
 class MangoOffice {
 
@@ -14,14 +14,11 @@ class MangoOffice {
 
     private Client $client;
 
-    private Helpers $helper;
-
     public function __construct(string $key, string $salt) 
     {
         $this->key = $key;
         $this->salt = $salt;
         $this->client = new Client(['base_uri' => 'https://app.mango-office.ru/vpbx/']);
-        $this->helper = new Helpers();
     }
 
     protected function execute(string $method, ?array $data)
@@ -29,7 +26,7 @@ class MangoOffice {
         $responseData = [];
         $postData = [
             'vpbx_api_key' => $this->key,
-            'sign' => $this->helper->makeSign($this->key, $this->salt, $data),
+            'sign' => Helpers::makeSign($this->key, $this->salt, $data),
             'json' => json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
         ];
         

@@ -7,9 +7,14 @@ use Epictest\MangoVpbx\MangoOffice;
 
 class Call extends MangoOffice {
 
-    public function sendCall()
+    public function sendCall($from, $to)
     {
-        $data = [];
+        $data = [
+            'from' => [
+                'extension' => $from,
+            ],
+            'to_number' => $to
+        ];
         $route = Urls::CALL()->getValue();
         
         return $this->execute($route, $data);
