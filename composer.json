@@ -14,10 +14,10 @@
             "email": "d.o.gudkov@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=8.0",
-        "guzzlehttp/guzzle": "7.4.x-dev",
-        "elao/enum": "1.x-dev"
+        "guzzlehttp/guzzle": "7.3.0",
+        "elao/enum": "1.16.0"
     }
 }
