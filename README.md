@@ -18,9 +18,9 @@ composer require epictest/mango-vpbx
 ### Init
 
 ```php
-use Epictest\MangoVpbx\MangoOffice;
+use Epictest\MangoVpbx\MangoOffice\Call as MangoCall;
 
-$mangoVpbx = new MangoOffice\Call($apiKey, $apiSalt);
+$mangoVpbx = new MangoCall($apiKey, $apiSalt);
 ```
 
 ### Methods
@@ -28,17 +28,11 @@ $mangoVpbx = new MangoOffice\Call($apiKey, $apiSalt);
 
 | params  | type  | example |
 | --------- | ---- | -------- |
-| `$from` | `int|array` | caller extension or phone number<br >if integer is used as extension|
+| `$from` | `string,array` | caller extension or phone number<br >if integer is used as extension|
 | `$to` | `string` | number to call|
 
 
 ```php 
-$from = [
-    "extension" => "100",
-    "number" => "79990001111",
-];
-$to = "79000001111";
-
-$response = $mangoVpbx->sendCall($from, $to);
+$response = $this->mangoVpbx->sendCall(to: "79991113366", from: "111");
 ```
 
