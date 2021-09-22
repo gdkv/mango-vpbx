@@ -1,4 +1,4 @@
-# Mango Office VPBX API
+# Mango Office VPBX API ☎️
 
 PHP (>=8.0) library for Mango Office VPBX Api
 
@@ -10,10 +10,10 @@ composer require epictest/mango-vpbx
 
 ## MangoOffice\Call
 
-| params  | type  | info |
-| --------- | ---- | -------- |
-| `$key` | `string` | ID |
-| `$salt` | `string` | Signature |
+| params    | type     | info      |
+| --------- | -------- | --------- |
+| `$key`    | `string` | ID        |
+| `$salt`   | `string` | Signature |
 
 ### Init
 
@@ -26,10 +26,10 @@ $mangoVpbx = new MangoCall($apiKey, $apiSalt);
 ### Methods
 #### sendCall (Start call)
 
-| params  | type  | example |
-| --------- | ---- | -------- |
+| params  | type           | example                                                             |
+| ------- | -------------- | ------------------------------------------------------------------- |
 | `$from` | `string,array` | caller extension or phone number<br >if integer is used as extension|
-| `$to` | `string` | number to call|
+| `$to`   | `string`       | number to call                                                      |
 
 
 ```php 

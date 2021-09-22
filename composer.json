@@ -17,8 +17,9 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=8.0",
-        "guzzlehttp/guzzle": "7.3.0",
+        "guzzlehttp/guzzle": "^6.5",
         "elao/enum": "^1.15",
-        "symfony/uid": "5.3.*"
+        "symfony/uid": "5.3.*",
+        "symfony/http-foundation": "^5.3"
     }
 }
