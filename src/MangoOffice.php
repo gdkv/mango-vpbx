@@ -4,6 +4,7 @@ namespace Epictest\MangoVpbx;
 
 use JsonException;
 use GuzzleHttp\Client;
+use Symfony\Component\Uid\UuidV6;
 use Epictest\MangoVpbx\MangoOffice\Helpers;
 
 class MangoOffice {
@@ -18,19 +19,27 @@ class MangoOffice {
     {
         $this->key = $key;
         $this->salt = $salt;
-        $this->client = new Client(['base_uri' => 'https://app.mango-office.ru/vpbx/']);
+        $this->client = new Client([
+            'base_uri' => 'https://app.mango-office.ru/vpbx/', 
+            'debug' => false
+        ]);
     }
 
-    protected function execute(string $method, ?array $data)
+    protected function execute(string $method, ?array $data): array
     {
         $responseData = [];
+
+        $data['command_id'] = UuidV6::generate();
+
         $postData = [
             'vpbx_api_key' => $this->key,
             'sign' => Helpers::makeSign($this->key, $this->salt, $data),
             'json' => json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
         ];
-        
-        $response = $this->client->post($method, $postData);
+
+        $response = $this->client->post($method, [
+            "form_params" => $postData,
+        ]);
 
         try {
             $responseData = json_decode(

@@ -18,6 +18,7 @@
     "require": {
         "php": ">=8.0",
         "guzzlehttp/guzzle": "7.3.0",
-        "elao/enum": "^1.15"
+        "elao/enum": "^1.15",
+        "symfony/uid": "5.3.*"
     }
 }
